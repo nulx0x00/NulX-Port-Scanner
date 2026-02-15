@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.net.*;
 
 public class ScanTask implements Runnable {
@@ -18,8 +19,12 @@ public class ScanTask implements Runnable {
             socket.connect(new InetSocketAddress(target, port), TIMEOUT);
             socket.close();
             System.out.println("[+] Port " + port + " OPEN");
-        } catch (Exception ignored) {
-
+        }
+        catch (SocketTimeoutException e)
+        {
+            System.out.println("[+] Port " + port + " Closed/{timed-out}");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

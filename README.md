@@ -2,7 +2,7 @@
 
 ### 🛡️ Research Artifact for "Comparative Analysis of Sequential vs. Concurrent Network Scanning"
 
-**NulX Scanner** is a custom-built Java network enumeration tool designed to demonstrate the efficiency gap between blocking I/O (Sequential) and non-blocking multi-threaded architectures (Concurrent).
+**NulX Scanner** is a custom-built Java network scanning tool designed to demonstrate the efficiency gap between blocking I/O (Sequential) and non-blocking multi-threaded architectures (Concurrent).
 
 This repository serves as the **Proof of Concept (PoC)** for the academic research paper comparing network latency handling in Java.
 

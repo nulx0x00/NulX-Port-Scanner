@@ -14,7 +14,8 @@ public class ConcurrentScanner {
         worker.shutdown();
         try {
             worker.awaitTermination(1000, TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
+        }
+        catch (InterruptedException e) {
             worker.shutdownNow();
         }
     }
