@@ -12,8 +12,8 @@ This repository serves as the **Proof of Concept (PoC)** for the academic resear
 
 | Scan Mode | Threads | Time (1000 Ports) | Performance |
 | :--- | :--- | :--- | :--- |
-| **Sequential** | 1 | ~35,883 ms | Baseline |
-| **Concurrent** | 50 | ~3,479 ms | **10x Faster** |
+| **Sequential** | 1 | ~36,617 ms | Baseline |
+| **Concurrent** | 50 | ~1,100 ms | **33x Faster** |
 
 > *Benchmarks run against `scanme.nmap.org` on Pop!_OS Linux.*
 
