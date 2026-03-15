@@ -9,10 +9,8 @@ public class SequentialScanner {
         ArrayList<Integer> openport = new ArrayList<>();
 
         for (int port = start; port <= end; port++) {
-            try {
-                Socket socket = new Socket();
+            try (Socket socket = new Socket()){
                 socket.connect(new InetSocketAddress(target, port), timeout);
-                socket.close();
                 System.out.println("[+] Port " + port + " OPEN");
                 openport.add(port);
                 openports += 1;
@@ -20,8 +18,7 @@ public class SequentialScanner {
             }
             catch (IOException ignored) {}
         }
-        System.out.print("The Total no. of open port: " +openports);
-        System.out.print("{");
+        System.out.print("The Total no. of open port: " +openports + "{");
         for (int elements : openport){
             System.out.print(elements+", ");
         }
