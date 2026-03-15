@@ -1,19 +1,20 @@
+import java.io.IOException;
+import java.util.Scanner;
 import java.util.concurrent.*;
 
 public class ConcurrentScanner {
-    public static void scan(String target, int start, int end) {
+    public static void scan(String target, int start, int end , int timeout , int thread) {
 
-
-        System.out.println("[*] Starting Concurrent Scan (50 Threads)...");
-        ExecutorService worker = Executors.newFixedThreadPool(50);
+        System.out.println("[*] Starting Concurrent Scan ("+thread+" Threads)...");
+        ExecutorService worker = Executors.newFixedThreadPool(thread);
 
         for (int port = start; port <= end; port++) {
-            worker.execute(new ScanTask(target, port));
+            worker.execute(new ScanTask(target, port,timeout ));
         }
 
         worker.shutdown();
         try {
-            worker.awaitTermination(1000, TimeUnit.SECONDS);
+            worker.awaitTermination(timeout * (end - start + 1), TimeUnit.MILLISECONDS);
         }
         catch (InterruptedException e) {
             worker.shutdownNow();

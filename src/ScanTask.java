@@ -5,11 +5,12 @@ public class ScanTask implements Runnable {
 
     private final String target;
     private final int port;
-    private static final int TIMEOUT = 1000; // 1 second timeout
+    private final int TIMEOUT; // 1 second timeout
 
-    public ScanTask(String target, int port) {
+    public ScanTask(String target, int port,  int timeout) {
         this.target = target;
         this.port = port;
+        this.TIMEOUT=timeout;
     }
 
     @Override
@@ -20,11 +21,8 @@ public class ScanTask implements Runnable {
             socket.close();
             System.out.println("[+] Port " + port + " OPEN");
         }
-        catch (SocketTimeoutException e)
-        {
-            System.out.println("[+] Port " + port + " Closed/{timed-out}");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        catch (IOException ignored) {
+
         }
     }
 }
