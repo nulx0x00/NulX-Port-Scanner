@@ -15,6 +15,8 @@ public class Main {
         int start = input.nextInt();
         System.out.print("End Port: ");
         int end = input.nextInt();
+        System.out.print("timeout : ");
+        int timeout = input.nextInt();
 
 
         // 3. Choose Mode
@@ -28,9 +30,9 @@ public class Main {
         long startTime = System.currentTimeMillis();
 
         if (choice == 1) {
-            SequentialScanner.scan(target, start, end);
+            SequentialScanner.scan(target, start, end,timeout);
         } else {
-            ConcurrentScanner.scan(target, start, end);
+            ConcurrentScanner.scan(target, start, end, timeout);
         }
 
 
