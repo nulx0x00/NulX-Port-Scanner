@@ -1,5 +1,3 @@
-import java.io.IOException;
-import java.util.Scanner;
 import java.util.concurrent.*;
 
 public class ConcurrentScanner {

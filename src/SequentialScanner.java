@@ -18,14 +18,7 @@ public class SequentialScanner {
                 openports += 1;
 
             }
-            catch (SocketTimeoutException e)
-            {
-                System.out.println("[+] Port " + port + " Closed/{timed-out}");
-            }
-            catch (IOException e)
-            {
-                e.printStackTrace();
-            }
+            catch (IOException ignored) {}
         }
         System.out.print("The Total no. of open port: " +openports);
         System.out.print("{");
